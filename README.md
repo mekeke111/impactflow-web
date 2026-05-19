@@ -78,3 +78,46 @@ src/
 ## License
 
 MIT
+
+## Notifications (usage)
+
+This repository includes a small reusable notification system under `src/notifications`.
+
+Basic usage in a React app (wrap your app):
+
+```tsx
+import { NotificationProvider } from './src/notifications';
+
+function App() {
+	return (
+		<NotificationProvider>
+			<YourApp />
+		</NotificationProvider>
+	);
+}
+```
+
+Trigger notifications from components using the `useNotifications` hook:
+
+```tsx
+import { useNotifications } from './src/notifications';
+
+function SomeComponent() {
+	const { success, error, info } = useNotifications();
+
+	return (
+		<div>
+			<button onClick={() => success('Saved successfully')}>Save</button>
+			<button onClick={() => error('Failed to save')}>Fail</button>
+		</div>
+	);
+}
+```
+
+Files added:
+
+- `src/notifications/NotificationContext.tsx`
+- `src/notifications/Toast.tsx`
+- `src/notifications/toast.css`
+- `src/notifications/index.ts`
+
