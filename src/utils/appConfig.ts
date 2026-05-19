@@ -10,4 +10,21 @@ export const appConfig = {
     "src/store/",
     "src/utils/",
   ],
+  features: [
+    "Wallet authentication",
+    "Funding campaign creation",
+    "Beneficiary onboarding",
+    "Milestone tracking",
+    "DAO governance participation",
+    "Transparency dashboard",
+    "Real-time funding updates",
+  ],
+  techStack: [
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Stellar Wallet Kit",
+    "Zustand",
+    "React Query",
+  ],
 };
