@@ -1,4 +1,5 @@
 import { Button } from '@/components/Button';
+import { WalletStatus } from '@/features/home/WalletStatus';
 
 export function HomeHero() {
   return (
@@ -15,6 +16,7 @@ export function HomeHero() {
       <div className="flex flex-wrap gap-3">
         <Button>Get started</Button>
       </div>
+      <WalletStatus />
     </div>
   );
 }
