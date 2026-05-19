@@ -1,32 +1,46 @@
+import OverviewCard from "../components/OverviewCard";
+import { appConfig } from "../utils/appConfig";
+import { roadmap } from "../features/roadmap";
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100 px-6 py-12">
-      <div className="mx-auto max-w-4xl rounded-3xl border border-slate-800 bg-slate-900/90 p-10 shadow-2xl shadow-slate-950/20">
-        <h1 className="text-4xl font-semibold tracking-tight text-white">ImpactFlow Web</h1>
-        <p className="mt-4 max-w-2xl text-slate-300">
-          A starter frontend for the ImpactFlow Protocol, built with Next.js, TypeScript, and Tailwind CSS.
-        </p>
+      <div className="mx-auto max-w-5xl space-y-8 rounded-3xl border border-slate-800 bg-slate-900/90 p-10 shadow-2xl shadow-slate-950/20">
+        <div className="space-y-4">
+          <h1 className="text-4xl font-semibold tracking-tight text-white">{appConfig.name}</h1>
+          <p className="max-w-3xl text-slate-300">{appConfig.description}</p>
+        </div>
 
-        <section className="mt-10 grid gap-6 sm:grid-cols-2">
-          <div className="rounded-3xl border border-slate-800 bg-slate-950/80 p-6">
-            <h2 className="text-xl font-semibold text-white">Features</h2>
+        <div className="grid gap-6 xl:grid-cols-[2fr_1fr]">
+          <OverviewCard
+            title="Project structure"
+            description="This repository follows the documented ImpactFlow structure with dedicated source folders for components, features, services, hooks, store state and utilities."
+          >
             <ul className="mt-4 space-y-2 text-slate-300">
-              <li>Wallet authentication</li>
-              <li>Funding campaign creation</li>
-              <li>Beneficiary onboarding</li>
-              <li>Milestone tracking</li>
+              {appConfig.structure.map((path) => (
+                <li key={path} className="rounded-2xl bg-slate-950/80 px-4 py-2 text-sm text-slate-300">
+                  {path}
+                </li>
+              ))}
             </ul>
-          </div>
-          <div className="rounded-3xl border border-slate-800 bg-slate-950/80 p-6">
-            <h2 className="text-xl font-semibold text-white">Tech Stack</h2>
-            <ul className="mt-4 space-y-2 text-slate-300">
-              <li>Next.js</li>
-              <li>TypeScript</li>
-              <li>Tailwind CSS</li>
-              <li>React</li>
+          </OverviewCard>
+
+          <OverviewCard
+            title="Roadmap"
+            description="The current feature roadmap is represented here so the homepage stays consistent with the README and project goals."
+          >
+            <ul className="mt-4 space-y-3 text-slate-300">
+              {roadmap.map((item) => (
+                <li key={item.label} className="flex items-center gap-3 rounded-2xl bg-slate-950/80 px-4 py-3">
+                  <span className={item.completed ? "text-emerald-400" : "text-slate-400"}>
+                    {item.completed ? "✔" : "○"}
+                  </span>
+                  <span>{item.label}</span>
+                </li>
+              ))}
             </ul>
-          </div>
-        </section>
+          </OverviewCard>
+        </div>
       </div>
     </main>
   );
