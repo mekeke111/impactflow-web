@@ -45,7 +45,7 @@ npm run dev
 
 ## Environment Variables
 
-Create a `.env.local` file or copy from `.env.local.example`:
+Create a `.env.local` file:
 
 ```env
 NEXT_PUBLIC_API_URL=

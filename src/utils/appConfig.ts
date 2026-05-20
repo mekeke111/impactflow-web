@@ -1,6 +1,14 @@
 export const appConfig = {
   name: "ImpactFlow Web",
   description: "Frontend application for the ImpactFlow Protocol built with Next.js, TypeScript, and Tailwind CSS.",
+  overview:
+    "ImpactFlow is a transparent community funding and aid distribution platform powered by Stellar and Soroban smart contracts.",
+  audience: [
+    "Organizations",
+    "Beneficiaries",
+    "Community validators",
+    "Donors",
+  ],
   structure: [
     "src/app/",
     "src/components/",

@@ -1,73 +1,84 @@
-import OverviewCard from "../components/OverviewCard";
-import { appConfig } from "../utils/appConfig";
-import { roadmap } from "../features/roadmap";
+import Navbar from '../components/Navbar';
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100 px-6 py-12">
-      <div className="mx-auto max-w-6xl space-y-8 rounded-3xl border border-slate-800 bg-slate-900/90 p-10 shadow-2xl shadow-slate-950/20">
-        <div className="space-y-4">
-          <h1 className="text-4xl font-semibold tracking-tight text-white">{appConfig.name}</h1>
-          <p className="max-w-3xl text-slate-300">{appConfig.description}</p>
+    <main className="min-h-screen bg-black text-white">
+
+      <Navbar />
+
+      {/* HERO SECTION */}
+      <section className="flex flex-col items-center justify-center text-center py-32 px-6">
+
+        <h1 className="text-6xl font-bold max-w-4xl leading-tight">
+          Transparent Community Funding on Stellar
+        </h1>
+
+        <p className="text-gray-400 mt-6 max-w-2xl text-lg">
+          ImpactFlow helps organizations distribute aid transparently using blockchain technology.
+        </p>
+
+        <div className="flex gap-4 mt-10">
+
+          <button className="bg-blue-600 px-8 py-4 rounded-2xl">
+            Launch Campaign
+          </button>
+
+          <button className="border border-gray-700 px-8 py-4 rounded-2xl">
+            Learn More
+          </button>
+
         </div>
 
-        <div className="grid gap-6 xl:grid-cols-2">
-          <OverviewCard
-            title="Project structure"
-            description="This repository follows the documented ImpactFlow structure with dedicated source folders for components, features, services, hooks, store state and utilities."
-          >
-            <ul className="mt-4 space-y-2 text-slate-300">
-              {appConfig.structure.map((path) => (
-                <li key={path} className="rounded-2xl bg-slate-950/80 px-4 py-2 text-sm text-slate-300">
-                  {path}
-                </li>
-              ))}
-            </ul>
-          </OverviewCard>
+      </section>
 
-          <OverviewCard
-            title="Roadmap"
-            description="The current feature roadmap is represented here so the homepage stays consistent with the README and project goals."
-          >
-            <ul className="mt-4 space-y-3 text-slate-300">
-              {roadmap.map((item) => (
-                <li key={item.label} className="flex items-center gap-3 rounded-2xl bg-slate-950/80 px-4 py-3">
-                  <span className={item.completed ? "text-emerald-400" : "text-slate-400"}>
-                    {item.completed ? "✔" : "○"}
-                  </span>
-                  <span>{item.label}</span>
-                </li>
-              ))}
-            </ul>
-          </OverviewCard>
+      {/* FEATURES SECTION */}
+      <section className="py-24 px-8 bg-gray-950">
 
-          <OverviewCard
-            title="Features"
-            description="Core platform capabilities are defined in the README and reflected in the current project plan."
-          >
-            <ul className="mt-4 space-y-2 text-slate-300">
-              {appConfig.features.map((feature) => (
-                <li key={feature} className="rounded-2xl bg-slate-950/80 px-4 py-2 text-sm text-slate-300">
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </OverviewCard>
+        <h2 className="text-4xl font-bold text-center mb-16">
+          Platform Features
+        </h2>
 
-          <OverviewCard
-            title="Tech Stack"
-            description="The stack is intentionally minimal and aligned with the README for frontend development and integration."
-          >
-            <ul className="mt-4 space-y-2 text-slate-300">
-              {appConfig.techStack.map((tech) => (
-                <li key={tech} className="rounded-2xl bg-slate-950/80 px-4 py-2 text-sm text-slate-300">
-                  {tech}
-                </li>
-              ))}
-            </ul>
-          </OverviewCard>
+        <div className="grid md:grid-cols-3 gap-8">
+
+          <div className="bg-black border border-gray-800 p-8 rounded-3xl">
+            <h3 className="text-2xl font-semibold mb-4">
+              Transparent Funding
+            </h3>
+
+            <p className="text-gray-400">
+              Track donations and aid distribution transparently.
+            </p>
+          </div>
+
+          <div className="bg-black border border-gray-800 p-8 rounded-3xl">
+            <h3 className="text-2xl font-semibold mb-4">
+              DAO Governance
+            </h3>
+
+            <p className="text-gray-400">
+              Community members participate in governance decisions.
+            </p>
+          </div>
+
+          <div className="bg-black border border-gray-800 p-8 rounded-3xl">
+            <h3 className="text-2xl font-semibold mb-4">
+              Real-Time Tracking
+            </h3>
+
+            <p className="text-gray-400">
+              Monitor campaigns and milestones in real time.
+            </p>
+          </div>
+
         </div>
-      </div>
+
+      </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-gray-800 py-8 text-center text-gray-500">
+        © 2026 ImpactFlow Protocol
+      </footer>
+
     </main>
   );
 }
